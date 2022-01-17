@@ -2,7 +2,20 @@ var hist = ['HISTÓRICO<br>']
 var div = document.querySelector('.div')
 
 function insert(num) {
+    document.querySelector('.resultado').style.fontSize = '24pt'
     document.querySelector('.resultado').innerHTML += num
+    if (document.querySelector('.resultado').innerHTML.length > 14) {
+        document.querySelector('.resultado').style.fontSize = '16pt'
+    }
+    if (document.querySelector('.resultado').innerHTML.length == 21) {
+        alert('Essa viagem é realmente necessária?')
+        document.querySelector('.resultado').innerHTML += '<br>'
+    }
+    if (document.querySelector('.resultado').innerHTML.length == 48) {
+        alert('Ok, você quem pediu')
+        document.querySelector('.resultado').innerHTML = ''
+    }
+
 }
 
 function limpar() {
@@ -15,20 +28,25 @@ function apagar() {
 }
 
 function calcular() {
+
     var resultado = document.querySelector('.resultado').innerHTML;
     if (resultado.length > 1) {
+        var res1 = eval(resultado)
         let res = resultado + ' = ' + eval(resultado)
         hist.push(res)
-        document.querySelector('.resultado').innerHTML = eval(resultado)
+        document.querySelector('.resultado').innerHTML = res1
+        if (document.querySelector('.resultado').innerHTML.length > 14) {
+            document.querySelector('.resultado').style.fontSize = '16pt'
+        }
     }
 }
 
 
 function historico() {
-    
+
     let historico = hist.join('<br>       ')
-    
-    
+
+
     div.style.display = 'block'
     div.innerHTML = historico
 }

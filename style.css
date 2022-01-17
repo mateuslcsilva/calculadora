@@ -42,10 +42,11 @@
 }
 .resultado{
     width: 225px;
+    display: block;
     height: 50px;
     background-color: white;
     margin: 15px 0 15px 10px;
-    font-size: 18pt;
+    font-size: 24pt;
     text-align: right;
     border-radius: 2px;
 }
@@ -68,4 +69,9 @@
     border-radius: 15px;
     display: none;
     padding: 5px;
+}
+.rodape{
+    position: absolute;
+    bottom: 10px;
+    left: 46.5%;
 }
